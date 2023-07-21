@@ -1,11 +1,17 @@
 {config, ...}: {
   maps = {
+
     operator = {
       "iw" = "]w";
       "w" = "iw";
       "W" = "iW";
       "<Leader>w" = "w";
       "<Leader>W" = "W";
+    };
+    
+    # nopes
+    normal = {
+#      "<Space>" = "<Nope>"
     };
 
     # navigation

@@ -1,17 +1,21 @@
 {config, ...}: {
+  imports = [
+    ./telescope.nix
+    ./bufferline.nix
+  ];
+
   plugins = {
     nvim-autopairs.enable = true;
     lualine.enable = true;
-    auto-save.enable = true;
     nvim-lightbulb.enable = true;
 
-    barbar = {
-      enable = true;
-      autoHide = true;
-    };
+    treesitter.enable = true;
+    lsp.enable = true;
 
-    treesitter. enable = true;
-    lsp. enable = true;
+    auto-save = {
+      enable = true;
+      executionMessage.message = "";
+    };
 
     # nix
     nix.enable = true;
