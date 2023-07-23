@@ -22,6 +22,7 @@
           imports = [
             ./config
             ./modules
+            ./plugins
           ];
         };
         pkgs = import nixpkgs {inherit system;};

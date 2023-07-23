@@ -1,6 +1,5 @@
 {config, ...}: {
   maps = {
-
     operator = {
       "iw" = "]w";
       "w" = "iw";
@@ -8,7 +7,7 @@
       "<Leader>w" = "w";
       "<Leader>W" = "W";
     };
-    
+
     # navigation
     normalVisualOp = {
       "<C-Left>" = "B";

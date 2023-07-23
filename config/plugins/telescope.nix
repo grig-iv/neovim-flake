@@ -1,14 +1,16 @@
-{config, pkgs, ...}:
 {
+  config,
+  pkgs,
+  ...
+}: {
   plugins.telescope = {
-      enable = true;
-      keymaps = {
-        "t" = "builtin";
-        "<C-Space>" = "git_files";
-        "<C-S-Space>" = "find_files";
-      };
+    enable = true;
+    keymaps = {
+      "t" = "builtin";
+      "<C-Space>" = "git_files";
+      "<C-S-Space>" = "find_files";
     };
+  };
 
-    extraPlugins = with pkgs; [ ripgrep ];
+  extraPlugins = with pkgs; [ripgrep];
 }
-  
