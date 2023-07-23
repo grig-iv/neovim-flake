@@ -12,6 +12,8 @@
     treesitter.enable = true;
     lsp.enable = true;
 
+    dashboard.enable = true;
+
     auto-save = {
       enable = true;
       executionMessage.message = "";

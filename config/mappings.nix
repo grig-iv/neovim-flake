@@ -9,11 +9,6 @@
       "<Leader>W" = "W";
     };
     
-    # nopes
-    normal = {
-#      "<Space>" = "<Nope>"
-    };
-
     # navigation
     normalVisualOp = {
       "<C-Left>" = "B";
