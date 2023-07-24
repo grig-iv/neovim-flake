@@ -3,7 +3,15 @@
     enable = true;
     diagnostics = true;
     showBufferCloseIcons = false;
-    alwaysShowBufferline = false;
+    alwaysShowBufferline = true;
+    offsets = [
+      {
+        filetype = "NvimTree";
+        text = "Explorer";
+        highlight = "Directory";
+        separator = true;
+      }
+    ];
   };
 
   maps.normal = {

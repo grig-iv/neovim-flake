@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  helpers,
   ...
 }:
 with lib; let
@@ -16,20 +17,20 @@ in {
       description = "Plugin to use for eyeliner.nvim";
     };
 
-    highlightOnKey = mkOption {
-        type = types.nullOr types.bool;
-        description = "Show highlights only after keypress";
-        default = null;
-      };
+    highlightOnKey = helpers.defaultNullOpts.mkBool true "Show highlights only after keypress";
+    dim = helpers.defaultNullOpts.mkBool false "Dim all other characters if set to true";
   };
 
-  config = mkIf cfg.enable {
-    extraPlugins = [cfg.package];
-
-    extraConfigLua = ''
-      require('eyeliner').setup {
-        highlight_on_key = true,
-      }
-    '';
-  };
+  config = let
+    setupOptions = {
+      highlight_on_key = cfg.highlightOnKey;
+      dim = cfg.dim;
+    };
+  in
+    mkIf cfg.enable {
+      extraPlugins = [cfg.package];
+      extraConfigLua = ''
+        require('eyeliner').setup(${helpers.toLuaObject setupOptions})
+      '';
+    };
 }

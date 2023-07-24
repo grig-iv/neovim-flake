@@ -1,34 +1,56 @@
-{config, ...}: {
+{config, lib, ...}: {
   imports = [
     ./telescope.nix
     ./bufferline.nix
     ./substitute.nix
+    ./nvim-tree.nix
   ];
 
   plugins = {
     nvim-autopairs.enable = true;
-    lualine.enable = true;
     nvim-lightbulb.enable = true;
+    treesitter.enable = true;
+    dashboard.enable = true;
+
+    lsp = {
+      enable = true;
+      keymaps = {
+        diagnostic = {
+          "<S-Left>" = "goto_prev";
+          "<S-Right>" = "goto_next";
+        };
+        lspBuf = {
+          "gd" = "definition";
+          "gD" = "references";
+          "gt" = "declaration";
+          "gi" = "implementation";
+          "h" = "hover";
+          "H" = "signature_help";
+          "<C-a>" = "code_action";
+          "<Leader>rn" = "rename";
+        };
+      };
+    };
 
     eyeliner = {
       enable = true;
-      highlightOnKey = false;
     };
 
-    treesitter.enable = true;
-    lsp.enable = true;
-
-    dashboard.enable = true;
+    lualine = {
+      enable = true;
+      extensions = ["nvim-tree"];
+    };
 
     auto-save = {
       enable = true;
       executionMessage.message = "";
     };
 
-    nvim-tree = {
-      enable = true;
-      autoClose = true;
-    };
+    # ts
+    lsp.servers.tsserver.enable = true;
+
+    # go
+    lsp.servers.gopls.enable = true;
 
     # nix
     nix.enable = true;

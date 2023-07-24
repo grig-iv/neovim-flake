@@ -40,7 +40,7 @@
 
       "j" = "J";
       "J" = "kJ";
-      "h" = "H";
+#      "h" = "H";
     };
 
     normalVisualOp = {
